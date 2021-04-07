@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String FILE_NAME = "example.txt";
 
     EditText mEditText;
+    FileClass fileClass;
 
 
     @Override
@@ -33,18 +34,21 @@ public class MainActivity extends AppCompatActivity {
 
         mEditText = findViewById(R.id.mEditText);
 
+        fileClass = new FileClass(getApplicationContext());
 
     }
 
 
 
     public void save(View v) {
-        Context context = getApplicationContext();
-        File path = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
-        File file = new File(path, FILE_NAME);
-
+//        Context context = getApplicationContext();
+//        File path = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+//        File file = new File(path, FILE_NAME);
+//
         String text = mEditText.getText().toString();
         FileOutputStream fos = null;
+
+        String test_text = "test:111\ntest:123";
 
         try {
 //            内部ストレージ
@@ -52,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
             fos.write(text.getBytes());
 
 //            外部ストレージ
-            FileOutputStream outputStream = new FileOutputStream(file);
-            outputStream.write(text.getBytes());
-            outputStream.flush();
+//            FileOutputStream outputStream = new FileOutputStream(file);
+//            outputStream.write(text.getBytes());
+//            outputStream.flush();
+            fileClass.save(test_text.getBytes());
 
             mEditText.getText().clear();
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
