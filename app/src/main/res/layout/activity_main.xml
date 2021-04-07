@@ -2,43 +2,67 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"></LinearLayout>
-
-    <EditText
-        android:id="@+id/mEditText"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:height="50dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
     <Button
         android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        android:layout_below="@+id/load"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="1dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:onClick="save"
+        android:text="@string/save" />
+
+    <Button
+        android:id="@+id/load"
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:onClick="load"
+        android:text="@string/load" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:layout_below="@+id/save"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/start" />
+
+    <TextView
+        android:id="@+id/TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="246dp"
-        android:onClick="save"
-        android:text="Save" />
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="483dp"
+        android:text="@string/content"
+        android:labelFor="@id/Text"/>
 
-    <Button
-        android:id="@+id/load"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/save"
-        android:layout_centerVertical="true"
-        android:text="Load"
-        android:onClick="load"/>
+    <EditText
+        android:id="@+id/Text"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="510dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine" />
 
 </RelativeLayout>
