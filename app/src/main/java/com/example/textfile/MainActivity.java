@@ -3,7 +3,6 @@ package com.example.textfile;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.util.Log;
 import android.view.View;
@@ -53,17 +52,17 @@ public class MainActivity extends AppCompatActivity {
 
         //retrofitライブラリの仕様？
         //ApiServiceでは行き先を分割して指定する
-        //Countでは受け取った情報を加工する処理？
-
-        String baseUrl = "https://www.reina-ryu-f.xyz/dicomo/";
+        String baseUrl = "https://www.reina-ryu-f.xyz/demo/dicomo/";
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
 
         ApiService service = retrofit.create(ApiService.class);
+        //行き先指定
         Call<Count> call = service.getCount();
+        //同期もしくは非同期の選択
         call.enqueue(new Callback<Count>() {
             @Override
             public void onResponse(Call<Count> call, Response<Count> response) {
-                Log.d("debug", response.body().toString());
+//                Log.d("debug", response.body().toString());
                 Log.d("debug", response.body().getCount());
             }
 
@@ -73,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //AsyncTaskを使用した非同期処理and同期処理　SendPost
+        SendPost sendPost = new SendPost(baseUrl);
+        sendPost.execute("");
 
 
     }
