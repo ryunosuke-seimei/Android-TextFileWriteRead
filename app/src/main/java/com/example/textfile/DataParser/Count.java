@@ -1,4 +1,4 @@
-package com.example.textfile;
+package com.example.textfile.DataParser;
 
 public class Count {
 

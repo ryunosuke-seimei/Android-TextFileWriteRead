@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.textfile.DataParser.Count;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,34 +49,19 @@ public class MainActivity extends AppCompatActivity {
         mEditText = findViewById(R.id.Text);
         fileClass = new FileClass(getApplicationContext());
 
+        //音声認識
         Button button = findViewById(R.id.start);
         button.setOnClickListener(view -> speech());
 
-        //retrofitライブラリの仕様？
-        //ApiServiceでは行き先を分割して指定する
+        //api retrofit asynctask test
         String baseUrl = "https://www.reina-ryu-f.xyz/demo/dicomo/";
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
 
-        ApiService service = retrofit.create(ApiService.class);
-        //行き先指定
-        Call<Count> call = service.getCount();
-        //同期もしくは非同期の選択
-        call.enqueue(new Callback<Count>() {
-            @Override
-            public void onResponse(Call<Count> call, Response<Count> response) {
-//                Log.d("debug", response.body().toString());
-                Log.d("debug", response.body().getCount());
-            }
+        AsyncTaskRetrofitGet sendGet = new AsyncTaskRetrofitGet(baseUrl);
+        sendGet.execute("");
 
-            @Override
-            public void onFailure(Call<Count> call, Throwable t) {
-                Log.e("debug", t.getMessage());
-            }
-        });
-
-        //AsyncTaskを使用した非同期処理and同期処理　SendPost
-        SendPost sendPost = new SendPost(baseUrl);
+        AsyncTaskRetrofitPost sendPost = new AsyncTaskRetrofitPost(baseUrl);
         sendPost.execute("");
+
 
 
     }
@@ -140,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             mEditText.setText(fileClass.load());
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
