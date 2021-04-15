@@ -1,12 +1,13 @@
 # Android-TextFileWriteRead
 
-##書いていること
+## 書いていること
 - Android 内部ストレージにテキストファイルを保存する工程
 - Android 外部ストレージにテキストファイルを保存する工程
 - Google Speech?での入力と受け取り
 - Retrofitを使用してGET通信
 - Retrofitを使用してPOST通信
 - RetrofitをAsyncTaskで実行しての通信
+- Dialogを立ち上げて音声入力　データをサーバーに送信　結果を取得
 
 ---
 #### File書き込みに関して
@@ -51,6 +52,14 @@ echo json_encode($params);
 
 ---
 #### Dialogについて
-[良サンプル　全体的に存在](https://eh-career.com/engineerhub/entry/2020/04/02/103000)  
+[良サンプル on kotlin 全体的に存在](https://eh-career.com/engineerhub/entry/2020/04/02/103000)  
+[良サンプル on java](https://qiita.com/suzukihr/items/8973527ebb8bb35f6bb8)  
+[公式サンプル](https://developer.android.com/guide/topics/ui/dialogs.html#java)  
+[公式サンプル　AlertDialog](https://developer.android.com/reference/android/app/AlertDialog.Builder.html)  
+[dialogfragment viewにbtnの処理を足したい時など](https://stackoverflow.com/questions/27770316/view-onclicklistener-in-a-custom-dialogfragment/27771830)  
+[Activityの終了時処理などイベントの発生](https://developer.android.com/training/basics/intents/result?hl=ja)  
+[startActivityForResultについて](https://araramistudio.jimdo.com/2018/02/15/android%E3%81%A7activity%E3%81%8B%E3%82%89%E7%B5%90%E6%9E%9C%E3%82%92%E5%8F%97%E3%81%91%E5%8F%96%E3%82%8B/)  
+[HTTP通信をしたい時](https://qiita.com/superman9387/items/7441998138a8509537a4)  
+[非同期処理の中で非同期処理をする必要はないようね](https://qiita.com/furusin_oriver/items/59dd0ae6dc795737eded)  
 
 ---

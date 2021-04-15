@@ -13,18 +13,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.textfile.DataParser.Count;
+import com.example.textfile.DataParser.AsyncTaskRetrofitGet;
+import com.example.textfile.DataParser.AsyncTaskRetrofitPost;
+import com.example.textfile.Dialog.CustomDialogFragment;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +44,17 @@ public class MainActivity extends AppCompatActivity {
 
         //start stop は　GUIで設定しました丸
         mEditText = findViewById(R.id.Text);
+        //FileClassの初期セットアップ
         fileClass = new FileClass(getApplicationContext());
+
+        FileClassDir fileClassDir = new FileClassDir(getApplicationContext());
+        List<String> files = fileClassDir.getAllFiles();
+
+//        try {
+//            fileClassDir.createNewFile("{taxt:1}".getBytes());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         //音声認識
         Button button = findViewById(R.id.start);
@@ -62,8 +69,16 @@ public class MainActivity extends AppCompatActivity {
         AsyncTaskRetrofitPost sendPost = new AsyncTaskRetrofitPost(baseUrl);
         sendPost.execute("");
 
+        Button button1 = findViewById(R.id.dialoginput);
+        button1.setOnClickListener(view -> dialog());
 
+    }
 
+    private void dialog(){
+//        SampleDialogFragment dialog = new SampleDialogFragment();
+//        dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
+        CustomDialogFragment dialog = new CustomDialogFragment();
+        dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
     }
 
     private void speech(){

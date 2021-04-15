@@ -4,4 +4,17 @@
     <string name="save">Save</string>
     <string name="start">start</string>
     <string name="content">content</string>
+    <string name="dialog">Dialog</string>
+    <string name="input_content">input content</string>
+    <string name="input_content_view"></string>
+    <string name="speech">speech</string>
+    <string name="influenza">Influenza</string>
+    <string name="diarrhea">Diarrhea</string>
+    <string name="hayfever">Hayfever</string>
+    <string name="cough">Cough</string>
+    <string name="headache">Headache</string>
+    <string name="fever">Fever</string>
+    <string name="ruunynose">Runnynose</string>
+    <string name="cold">Cold</string>
+
 </resources>

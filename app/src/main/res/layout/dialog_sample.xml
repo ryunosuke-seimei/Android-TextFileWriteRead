@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp"
+                android:text="@string/input_content" />
+
+            <TextView
+                android:id="@+id/SpeechText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/Text"
+                android:minHeight="20dp"
+                android:text="@string/input_content" />
+
+            <EditText
+                android:id="@+id/Text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="0dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:labelFor="@id/TextView"
+                android:minHeight="20dp" />
+
+            <Switch
+                android:id="@+id/influenza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/influenza" />
+
+            <Switch
+                android:id="@+id/diarrhea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/diarrhea" />
+
+            <Switch
+                android:id="@+id/hayfever"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hayfever" />
+
+            <Switch
+                android:id="@+id/cough"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cough" />
+
+            <Switch
+                android:id="@+id/headache"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/headache" />
+
+            <Switch
+                android:id="@+id/fever"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fever" />
+
+            <Switch
+                android:id="@+id/ruunynose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ruunynose" />
+
+            <Switch
+                android:id="@+id/cold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/dialoginput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:text="@string/speech" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

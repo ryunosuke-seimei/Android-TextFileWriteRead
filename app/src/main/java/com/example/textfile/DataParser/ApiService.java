@@ -1,4 +1,4 @@
-package com.example.textfile;
+package com.example.textfile.DataParser;
 
 import com.example.textfile.DataParser.Count;
 import com.example.textfile.DataParser.Post;
